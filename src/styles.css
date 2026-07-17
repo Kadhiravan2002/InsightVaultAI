@@ -1,0 +1,118 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+}
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+/* Slate + Violet dark-first design system */
+:root {
+  --radius: 0.75rem;
+  --background: oklch(0.16 0.02 260);
+  --foreground: oklch(0.97 0.01 260);
+  --card: oklch(0.20 0.025 262);
+  --card-foreground: oklch(0.97 0.01 260);
+  --popover: oklch(0.20 0.025 262);
+  --popover-foreground: oklch(0.97 0.01 260);
+  --primary: oklch(0.66 0.20 300);
+  --primary-foreground: oklch(0.99 0.005 300);
+  --secondary: oklch(0.26 0.03 262);
+  --secondary-foreground: oklch(0.97 0.01 260);
+  --muted: oklch(0.24 0.025 262);
+  --muted-foreground: oklch(0.72 0.03 260);
+  --accent: oklch(0.32 0.09 300);
+  --accent-foreground: oklch(0.97 0.01 260);
+  --destructive: oklch(0.62 0.22 20);
+  --destructive-foreground: oklch(0.98 0.01 20);
+  --border: oklch(0.30 0.02 262);
+  --input: oklch(0.28 0.02 262);
+  --ring: oklch(0.66 0.20 300);
+  --chart-1: oklch(0.66 0.20 300);
+  --chart-2: oklch(0.72 0.16 200);
+  --chart-3: oklch(0.75 0.17 145);
+  --chart-4: oklch(0.80 0.18 85);
+  --chart-5: oklch(0.72 0.20 20);
+  --sidebar: oklch(0.18 0.02 262);
+  --sidebar-foreground: oklch(0.95 0.01 260);
+  --sidebar-primary: oklch(0.66 0.20 300);
+  --sidebar-primary-foreground: oklch(0.99 0.005 300);
+  --sidebar-accent: oklch(0.26 0.05 285);
+  --sidebar-accent-foreground: oklch(0.97 0.01 260);
+  --sidebar-border: oklch(0.26 0.02 262);
+  --sidebar-ring: oklch(0.66 0.20 300);
+}
+
+@layer base {
+  html { color-scheme: dark; }
+  * { border-color: var(--color-border); }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.01em; }
+}
+
+@utility gradient-primary {
+  background-image: linear-gradient(135deg, oklch(0.66 0.20 300), oklch(0.58 0.22 285));
+}
+
+@utility gradient-hero {
+  background:
+    radial-gradient(1200px 600px at 10% -10%, oklch(0.35 0.12 300 / 0.35), transparent 60%),
+    radial-gradient(1000px 500px at 100% 10%, oklch(0.30 0.10 220 / 0.30), transparent 60%),
+    linear-gradient(180deg, oklch(0.14 0.02 262), oklch(0.16 0.02 260));
+}
+
+@utility shadow-elegant {
+  box-shadow: 0 20px 50px -20px oklch(0.66 0.20 300 / 0.45);
+}
+
+@utility shadow-card {
+  box-shadow: 0 1px 0 oklch(1 0 0 / 0.04) inset, 0 20px 40px -25px oklch(0 0 0 / 0.6);
+}
